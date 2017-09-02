@@ -3,6 +3,9 @@ language: java
 jdk:
    - oraclejdk8
 
+services:
+  - selenium
+
 after_success:
    - mvn clean cobertura:cobertura
    - mvn test

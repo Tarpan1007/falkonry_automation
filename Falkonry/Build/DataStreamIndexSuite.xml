@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Falkonry - Datastreams " verbose="10" parallel="false" thread-count="1">
+
+	<!-- Put IP of localhost/Grid Hub machine -->
+	<parameter name="selenium.host" value="localhost" />
+
+	<!-- Put Port of localhost RC/Grid Hub machine -->
+	<parameter name="selenium.port" value="4444" />
+
+	<!-- Put target browser name as below: 1) Firefox : firefox 2) chrome : 
+		chrome 3) IExplorer : ie8 / ie9 -->
+	<parameter name="selenium.browser" value="chrome" />
+	
+	<!-- <parameter name="selenium.url"
+		value="http://preprod.indivigroup.com" />
+ -->
+	<listeners>
+		<listener class-name="com.falkonry.utilities.CustomReporterTestFailureDetails" />
+		<listener class-name="com.falkonry.utilities.CustomReporterforEmail" />
+		<listener class-name="com.falkonry.utilities.CustomReporterEmailBuildSummary" />
+	</listeners>
+
+
+
+	 <test name=" TC_DS_02 :: To verify create 'New Standalone File type Datastream'.">
+		<classes>
+			<class name="com.falkonry.datastream.index.DatastreamIndex">
+				<methods>
+					<include name="addNewDatastream" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<!--  <test name=" TC_DS_10 :: To verify Assessment Rename functionality.">
+		<classes>
+			<class name="com.falkonry.datastream.index.DatastreamIndex">
+				<methods>
+					<include name="verifyRenameAssessment" />
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	
+	<test name=" TC_DS_17 :: To verify user can filter Assessmet's Input Signals by available individual Input Signal.">
+		<classes>
+			<class name="com.falkonry.datastream.index.DatastreamIndex">
+				<methods>
+					<include name="verifyCheckedSignalsonDashboard" />
+				</methods>
+			</class>
+		</classes>
+	</test>  
+
+	<test name=" TC_DS_25 :: To verify that 'Add New Manual DataStream' functionality.">
+		<classes>
+			<class name="com.falkonry.datastream.index.DatastreamIndex">
+				<methods>
+					<include name="addNewManualDatastream" />
+				</methods>
+			</class>
+		</classes>
+	</test>  
+	
+</suite>

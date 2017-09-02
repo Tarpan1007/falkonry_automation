@@ -1,0 +1,48 @@
+language: java
+jdk: 
+	-oraclejdk8
+	
+branches:
+  only:
+    - master
+    - release/*
+    
+git:
+   submodules: <true>
+   
+
+services:
+  - selenium   
+   
+before_script:
+  - "export DISPLAY=:99.0"
+  - "/etc/init.d/xvfb start"
+after_script:
+  - "/etc/init.d/xvfb stop"
+
+env:
+  - ENV1: "foo"       	
+	ENV2: "moo"
+	
+	
+ global:
+  - ENVG1: "goo" 
+  - ENVG2: "doo"	
+	
+	
+build:
+  ci: 
+  	- mvn install -DskipTests=true
+  
+  
+  after_success:
+   - mvn clean cobertura:cobertura
+   - mvn test
+
+notifications:
+  email:
+      recipients:
+         - tarpan.patel@kiwiqa.com
+         - mukesh.patel@kiwiqa.com
+  
+  

@@ -1,39 +1,13 @@
 language: java
-jdk: 
-	-oraclejdk8
-	
-branches:
-  only:
-    - master
-    
-git:
-   submodules: <true>
-   
+jdk: oraclejdk8
 
-services:
-  - selenium   
-   
-before_script:
-  - "export DISPLAY=:99.0"
-  - "/etc/init.d/xvfb start"
-after_script:
-  - "/etc/init.d/xvfb stop"
-
-
-	
 build:
-  ci: 
-  	- mvn test -DskipTests=true
-  
-  
-  after_success:
-   - mvn clean cobertura:cobertura
-   - mvn test
+ ci:
+ - mkdir -p shippable/testresults
+ - mkdir -p shippable/codecoverage
+ - shippable_retry mvn install
+ - cp -r target shippable/codecoverage
 
 notifications:
-  email:
-      recipients:
-         - tarpan.patel@kiwiqa.com
-         - mukesh.patel@kiwiqa.com
-  
-  
+ email:
+ - your.email@gmail.com

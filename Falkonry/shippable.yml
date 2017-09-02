@@ -5,7 +5,6 @@ jdk:
 branches:
   only:
     - master
-    - release/*
     
 git:
    submodules: <true>
@@ -20,19 +19,11 @@ before_script:
 after_script:
   - "/etc/init.d/xvfb stop"
 
-env:
-  - ENV1: "foo"       	
-	ENV2: "moo"
-	
-	
- global:
-  - ENVG1: "goo" 
-  - ENVG2: "doo"	
-	
+
 	
 build:
   ci: 
-  	- mvn install -DskipTests=true
+  	- mvn test -DskipTests=true
   
   
   after_success:

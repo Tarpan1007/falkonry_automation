@@ -4,6 +4,7 @@ jdk:
 
 services:
 - selenium
+
 build:
 ci:
 - mvn test

@@ -7,8 +7,3 @@ services:
 build:
 ci:
 - mvn test
-notifications:
-email:
-recipients:
-- tarpanworld13@gmail.com
-- tarpan.patel@kiwiqa.com

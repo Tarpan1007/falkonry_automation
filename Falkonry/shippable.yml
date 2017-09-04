@@ -1,17 +1,14 @@
 language: java
-
 jdk:
-   - openjdk8
+- openjdk8
 
 services:
-  - selenium
-
-after_success:
-   - mvn clean cobertura:cobertura
-   - mvn test
-
+- selenium
+build:
+ci:
+- mvn test
 notifications:
-  email:
-      recipients:
-         - tarpanworld13@gmail.com
-         - tarpan.patel@kiwiqa.com
+email:
+recipients:
+- tarpanworld13@gmail.com
+- tarpan.patel@kiwiqa.com
